@@ -1,4 +1,27 @@
+@import "../../styles/variables.scss";
+
 .new-movie-form {
+  .title {
+    align-self: center;
+    margin: 10px 0px;
+    font-size: 20px;
+  }
+  input {
+    margin-bottom: 5px;
+  }
+  h1 {
+    font-size: 20;
+    font-weight: bolder;
+  }
   display: flex;
   flex-direction: column;
+  width: 30vw;
+  @media (max-width: $mobilewidth) {
+    width: 100vw;
+  }
+  margin-bottom: 20px;
+  .form-genres-list {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 }

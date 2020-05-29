@@ -6,19 +6,21 @@ import NewMovieForm from "./components/NewMovieForm/NewMovieForm";
 import MoviesList from "./components/MoviesList/MoviesList";
 import GenreFilter from "./components/GenreFilter/GenreFilter";
 import SearchBar from "./components/SearchBar/SearchBar";
+import SpinnerLoader from "./components/SpinnerLoader/SpinnerLoader";
 
 function App() {
   const isLoading = useSelector((state) => state.isLoading);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-
+  const isOnLoading = () => {
     if (isLoading) {
       setTimeout(() => {
-        dispatch({ type: "TOGGLE_LOADING" ,payload:false});
+        dispatch({ type: "TOGGLE_LOADING", payload: false });
       }, 3000);
     }
-  }, [isLoading]);
+  };
+
+  useEffect(isOnLoading, [isLoading]);
 
   return (
     <div className="App">
@@ -27,7 +29,7 @@ function App() {
           path="/genre=:genre"
           render={() => (
             <div className="App-genre">
-              {isLoading ? <p>loading</p> : <MoviesList />}
+              {isLoading ? <SpinnerLoader /> : <MoviesList />}
             </div>
           )}
         />
@@ -38,7 +40,7 @@ function App() {
               <NewMovieForm />
               <GenreFilter />
               <SearchBar />
-              {isLoading ? <p>loading</p> : <MoviesList />}
+              {isLoading ? <SpinnerLoader /> : <MoviesList />}
             </div>
           )}
         />

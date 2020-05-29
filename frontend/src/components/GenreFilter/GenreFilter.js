@@ -59,7 +59,7 @@ const GenreFilter = () => {
         onChange={(e) => handleChange(e)}
       />
       <label htmlFor="genre-check">Comedy</label>
-      <button onClick={() => resetFilter()}>Reset</button>
+      <button onClick={() => resetFilter()}>Reset filter</button>
     </div>
   );
 };

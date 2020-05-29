@@ -1,10 +1,47 @@
 @import "reset.css";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Coiny|Lexend+Peta|Righteous|Varela+Round&display=swap");
 
 .App {
+  font-family: "Open Sans", sans-serif;
+
+  input {
+    // width: 100%;
+    outline:none;
+
+    padding: 6px 12px;
+    // // margin: 8px 0;
+    // // display: inline-block;
+    border: 3px dotted black;
+    // border-radius: 0px;
+    // box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  button {
+    &:hover {
+      cursor: pointer;
+      background-color: black;
+      color: white;
+    }
+    background-color: white;
+    border: 5px solid black;
+    color: black;
+    outline: none;
+    padding: 3px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+  }
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  .App-complete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

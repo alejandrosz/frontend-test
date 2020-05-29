@@ -25,12 +25,12 @@ const MovieRow = ({ movie, movie: { name, genres, isWatched } }) => {
   return (
     <div className="movie-row">
       {!isEditing ? (
-        <h1>{name}</h1>
+        <h1 className="bold-text">{name}</h1>
       ) : (
         <div className="movie-row-edit">
           <input
             type="text"
-            placeHolder="edit name"
+            placeholder="edit name"
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
           />
@@ -39,21 +39,23 @@ const MovieRow = ({ movie, movie: { name, genres, isWatched } }) => {
       )}
       <div className="movie-row-genres">
         {genres.map((genre, i) => (
-          <h1 key={i}>{genre}</h1>
+          <h1 key={i}>{genre}{" "}</h1>
         ))}
       </div>
-      <label>
-        <input
-          type="checkbox"
-          checked={movie.isWatched}
-          onChange={() => toggleWatched()}
-        />{" "}
-        Watched
-      </label>
-      <button onClick={deleteMovie}>Delete</button>
-      {!isEditing ? (
-        <button onClick={() => setIsEditing(!isEditing)}>Edit</button>
-      ) : null}
+      <div className="movie-row-buttons">
+        <label>
+          <input
+            type="checkbox"
+            checked={movie.isWatched}
+            onChange={() => toggleWatched()}
+          />
+          Watched
+        </label>
+        <button onClick={deleteMovie}>Delete</button>
+        {!isEditing ? (
+          <button onClick={() => setIsEditing(!isEditing)}>Edit</button>
+        ) : null}
+      </div>
     </div>
   );
 };

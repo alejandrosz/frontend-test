@@ -4,7 +4,7 @@ export const addMoviesAction = (movies, newMovie) => {
 };
 
 export const deleteMoviesAction = (movies, deletedMovie) => {
-  const remainingMovies = movies.filter((movie) => movie !== deletedMovie);
+  const remainingMovies = movies.filter((movie) => movie.name !== deletedMovie.name);
   const updatedMovies = remainingMovies
     .sort((a, b) => a.id < b.id)
     .map((movie, i) => ({ ...movie, id: i }));

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./MoviesList.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import MovieRow from "./MovieRow/MovieRow";
 
@@ -14,7 +14,7 @@ const MoviesList = () => {
   const search = useSelector((state) => state.search);
   const sortedMovies = movies.sort((a, b) => (a.id < b.id ? -1 : 1));
 
-  useEffect(() => {
+  const changeGenre = () => {
     if (genre) {
       dispatch({ type: "SET_FILTER", payload: genre });
       if (genre !== filter) {
@@ -22,9 +22,9 @@ const MoviesList = () => {
       }
     } else {
       dispatch({ type: "SET_FILTER", payload: null });
-  
     }
-  }, [genre]);
+  };
+  useEffect(changeGenre, [genre]);
   const sortedWatchedMovies = sortedMovies.sort((a, b) => {
     if (a.isWatched && !b.isWatched) {
       return 1;
@@ -46,6 +46,11 @@ const MoviesList = () => {
       {searchedMovies.map((movie, i) => (
         <MovieRow key={i} movie={movie}></MovieRow>
       ))}
+      {genre && (
+        <Link to="/">
+          <button>back</button>
+        </Link>
+      )}
     </div>
   );
 };

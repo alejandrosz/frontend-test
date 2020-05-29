@@ -1,3 +1,22 @@
-.movie-row{
+.movie-row {
+  .movie-row-genres{
+    display: flex;
+    flex-direction: row;
+  }
+  .bold-text{
+    font-weight: 900;
+  }
+  border-bottom: 2px solid black;
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  button {
+    font-size: 10px;
+    margin-left: 5px;
+  }
+  label {
+    font-size: 10px;
+  }
 }

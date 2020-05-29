@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.search-bar {
+  input {
+    width: auto;
+  }
+  @media (max-width: $mobilewidth) {
+    width: 100%;
+    input{
+      width: 93%;
+    }
+  }
+  margin-bottom: 15px;
+}

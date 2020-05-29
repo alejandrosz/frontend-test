@@ -1,0 +1,10 @@
+@import "../../styles/variables.scss";
+.movies-list {
+width: 80vw;
+
+@media (max-width: $mobilewidth) {
+  width: 100%;
+}
+
+
+}

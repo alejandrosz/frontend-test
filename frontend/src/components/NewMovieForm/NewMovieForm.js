@@ -28,23 +28,27 @@ const NewMovieForm = () => {
 
   return (
     <div className="new-movie-form">
-      <h1>Add movie to watchlist</h1>
+      <h1 className="title">Movie Watchlist</h1>
       <input
         type="text"
         placeholder="Movie name"
         name="movieName"
-        value={name}
         onChange={(e) => setName(e.target.value)}
       ></input>
       <input
         type="text"
-        placeholder="Movie genre"
+        placeholder="Add movie genre"
         name="movieGenre"
         onKeyDown={handleKeyDown}
       ></input>
-      {genres.map((genre, i) => (
-        <h1 key={i}>{genre}</h1>
-      ))}
+      <h1 className="form-genres-list">
+        Genres:{" "}
+        {genres.map((genre, i) => (
+          <span className="form-genres-list" key={i}>
+            {genre}{" "}
+          </span>
+        ))}
+      </h1>
       <button onClick={createMovie}>Add</button>
     </div>
   );
